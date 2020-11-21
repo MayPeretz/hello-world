@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Fill the bottle</title> 
+        <link rel="stylesheet" href="">
+        <h1 style="color:tomato;">Exercise num 5</h1>
+        <script> 
+            function functionA (){
+                document.getElementById("P1").innerHTML=
+                "I did it! :)";
+            }
+        </script> 
+    </head>
+    <body> 
+        <p id=p2></p>
+        <script>
+            document.getElementById('p2').innerHTML = "Java Script";
+        </script>
+
+        <p id=p3> </p>
+        <script>
+        function MyNextBDay(x){
+            return "Next year I'll celebrate my " + (x+1) + "th birthday";
+        }
+        document.getElementById('p3').innerHTML = 
+            MyNextBDay(26);
+        </script>
+
+        <button onclick="document.getElementById('empty bottle').src='full bottle.jpg'">Fill the bottle</button> 
+        <img id="empty bottle" alt ="" src="empty bottle.jpg"> 
+        <button onclick="document.getElementById('empty bottle').src='empty bottle.jpg'">Empty the bottle</button> 
+
+        <p id=P1>Let's try to change this text</p>
+        <button type ="button" onclick="functionA()"> Change text </button> 
+    </body>
+</html>
