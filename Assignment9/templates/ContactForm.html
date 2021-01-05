@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Contact</title>
+    </head>
+        <body>
+        {% if session['loggedin'] %}
+            <p>Welcome to my site, {{ session['username'] }}!</p>
+        {% endif %}
+            <h1 div style="background-color:#f1f1f1 ;color:#172154;font-family: 'Montserrat', sans-serif ;text-align:center; padding:20px; row-gap:0">
+                Contact Me
+            </h1>
+                <h3 div style="background-color:#f1f1f1 ;color:#172154; font-family: 'Montserrat', sans-serif;text-align:left; padding:10px; gap:0">
+                    Looking forward to answering your email
+                </h3>
+                <form action="/Contact_page.php" div style="background-color:#f1f1f1 ;color:#172154; font-family: Tahoma;text-align:left; padding:10px;">
+                    <label for="name">Name *</label><br>
+                    <input type="text" id='Name' required /><br>
+                    <label for="email">Email *</label><br>
+                    <input type="email" id="Email" name="Email" required /><br>
+                    <label for="Phone">Phone</label><br>
+                    <input type="text" id='Phone'><br>
+                    <br><textarea rows="6" cols="60" name="textarea1">Type your message here...</textarea>
+                    <br><input type="submit" value="Submit">
+                  </form>
+        </body>
+</html>

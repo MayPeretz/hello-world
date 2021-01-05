@@ -1,0 +1,17 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Users List</title>
+        <script src="{{ url_for('static', filename='CV_JS.js') }}"></script>
+     </head>
+        <body>
+        {% if session['loggedin'] %}
+            <p>Welcome to my site, {{ session['username'] }}!</p>
+        {% endif %}
+            <div class="usrlistTitle" style="text-align: center;font-family: Tahoma;">
+            Users list:</div>
+            <main style='background: #6e81df; text-align: center; font-family: Tahoma;'>
+                <script>CreateUsersLIst()</script>
+            </main>
+        </body>
+</html>
