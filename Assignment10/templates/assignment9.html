@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+      <link rel="stylesheet" href="{{ url_for('static', filename='CV_CSS.css' )}}">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <script src="{{ url_for('static', filename='CV_JS.js') }}"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+     </head>
+    <title>Assignment9</title>
+</head>
+<body>
+    <h2>Search form</h2>
+  <form method="get" action="/assignment9" div style="background-color:#f1f1f1 ;color:#172154; font-family: Tahoma;text-align:left; padding:10px;">
+      <select id="method" name="method">
+          <option value="Name">Name</option>
+          <option value="Email">Email</option>
+      </select>
+                    <label for="Search">Search detail</label><br>
+                    <input type="text" id="Search" name="Search" /><br>
+                    <br><input type="submit" value="Search">
+        </form>
+    {% if Tmethode =='GET' %}
+     <main style='background: #6e81df; text-align: center; font-family: Tahoma;'>
+        <script> printResults('{{ method }}','{{ Search }}'); </script>
+     </main>
+    {% endif %}
+
+    {% if session['loggedin'] %}
+        <p>Welcome to my site, {{ session['username'] }}!</p>
+        <a href="/logout">Logout</a>
+    {% else %}
+     <h2>Registration form</h2>
+        <form method="POST" action="/assignment9" style="background-color:#f1f1f1 ;color:#172154; font-family: Tahoma;text-align:left; padding:10px;">
+            <label for="name">Name *</label><br>
+            <input type="text" name="username" id='username' required /><br>
+            <label for="email">Email *</label><br>
+            <input type="email" id="usermail" name="usermail" required /><br>
+            <br><input type="submit" value="Submit">
+        </form>
+    {% endif %}
+
+</body>
+</html>

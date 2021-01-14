@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Assignment 10</title>
+</head>
+<body>
+    <h1>Welcome to May Peretz Assignment 10!</h1>
+    <h2>Show All:</h2>
+    <form action="/assignment10" method="POST" id="show_all">
+        <input type="hidden" name="form_type" value="show">
+        <input type="submit" value="Show All">
+    </form>
+    {% if method == 'POST' and type == 'show' %}
+        {% for user in data %}
+        <div class = "user">
+            <span>ID: {{ user.UserID }}, Name: {{ user.First_Name }} {{ user.Last_Name }}, Email: {{ user.Email }}</span>
+        </div>
+        {% endfor %}
+    {% endif %}
+    <h2>Insert new user:</h2>
+    <form action="/assignment10" method="POST" id="insert_form">
+        <label for="first_name">First Name:</label><br>
+        <input type="text" id="first_name" name="first_name" required><br>
+        <label for="last_name">Last Name:</label><br>
+        <input type="text" id="last_name" name="last_name" required><br>
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br>
+        <input type="hidden" name="form_type" value="insert">
+        <input type="submit" value="Insert">
+    </form>
+
+    {% if method == 'POST' and type == 'insert' %}
+        User Inserted!
+        {% for user in data %}
+        <div class = "user">
+            <span>ID: {{ user.UserID }}, Name: {{ user.First_Name }} {{ user.Last_Name }}, Email: {{ user.Email }}</span>
+        </div>
+        {% endfor %}
+    {% endif %}
+
+    <h2>Update existing user:</h2>
+    <form action="/assignment10" method="POST" id="update_form">
+        <label for="user_id">ID:</label><br>
+        <input type="number" id="user_id" name="user_id" required><br>
+        <label for="first_name">First Name:</label><br>
+        <input type="text" id="first_name" name="first_name" required><br>
+        <label for="last_name">Last Name:</label><br>
+        <input type="text" id="last_name" name="last_name" required><br>
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br>
+        <input type="hidden" name="form_type" value="update">
+        <input type="submit" value="Update">
+    </form>
+
+    {% if method == 'POST' and type == 'update' %}
+        {% if found %}
+            User Updated!
+            {% for user in data %}
+            <div class = "user">
+                <span>ID: {{ user.UserID }}, Name: {{ user.First_Name }} {{ user.Last_Name }}, Email: {{ user.Email }}</span>
+            </div>
+            {% endfor %}
+        {% else %}
+            User not found!
+        {% endif %}
+    {% endif %}
+
+    <h2>Delete existing user:</h2>
+    <form action="/assignment10" method="POST" id="delete_form">
+        <label for="user_id">ID:</label><br>
+        <input type="number" id="user_id" name="user_id" required><br>
+        <input type="hidden" name="form_type" value="delete">
+       <input type="submit" value="Delete">
+    </form>
+
+    {% if method == 'POST' and type == 'delete' %}
+        {% if found %}
+            User Deleted!
+            {% for user in data %}
+            <div class = "user">
+                <span>ID: {{ user.UserID }}, Name: {{ user.First_Name }} {{ user.Last_Name }}, Email: {{ user.Email }}</span>
+            </div>
+            {% endfor %}
+        {% else %}
+            User not found!
+        {% endif %}
+    {% endif %}
+</body>
+</html>
